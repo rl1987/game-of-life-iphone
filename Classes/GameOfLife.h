@@ -14,6 +14,9 @@
     double count;
     NSMutableArray * cells;
 }
+
+@property(readonly) int rows, columns, total;
+
 @property (nonatomic, retain) NSMutableArray * cells;
 
 - (GameOfLife *) initWithRows:(int)numRows andColumns:(int)numColumns;

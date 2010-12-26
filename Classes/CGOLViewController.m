@@ -62,4 +62,41 @@
     [super dealloc];
 }
 
+#pragma mark Interface – User Input
+
+- (IBAction)tickPressed:(UIButton *)sender{
+    NSLog(@"Tick pressed");
+    [textView setText:@"Tick!"];
+}
+
+- (IBAction)clearPressed:(UIButton *)sender{
+    NSLog(@"Clear pressed");
+    [textView setText:@""];
+}
+
+- (IBAction)startPressed:(UIButton *)sender{
+    if(!grid){
+        NSLog(@"Starting game...");
+        [self loadGame];
+    }
+    else NSLog(@"Game already started...");    
+}
+
+#pragma mark Private methods
+
+- (void) loadGame{
+    NSLog(@"Loading game:");
+    if(!grid){
+        grid = [[GameOfLife alloc] initWithRows:10 andColumns:10];
+        NSLog(@"Grid initialized.\n Rows: %d\n Columns: %d\n Total: %d\n", grid.rows, grid.columns, grid.total);
+    }
+    
+    // Initialize the grid
+    gridView.backgroundColor = [UIColor blackColor];
+}
+
+- (void) tick{}
+- (void) drawLife{}
+
+
 @end

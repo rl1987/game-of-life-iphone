@@ -12,17 +12,20 @@
 @implementation GameOfLife
 
 @synthesize cells;
+@synthesize rows; 
+@synthesize columns;
+@synthesize total;
 
 #pragma mark Initialization
-- (Grid *) init{
-    columns = 10;
-    rows = 20;
-    return [self initWithRows:rows andColumns:columns];
+- (GameOfLife *) init{
+    return [self initWithRows:5 andColumns:5];
 }
 
-- (Grid *) initWithRows:(int)numRows andColumns:(int)numColumns{
+- (GameOfLife *) initWithRows:(int)numRows andColumns:(int)numColumns{
     self = [super init];
-    count = numRows * numColumns;
+    columns = numColumns;
+    rows = numRows;
+    total = numRows * numColumns;
     
     return self;
 }
