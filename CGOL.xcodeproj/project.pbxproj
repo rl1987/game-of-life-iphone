@@ -1,0 +1,303 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BFCBFD4B12C7BB200038AB41 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCBFD4A12C7BB200038AB41 /* UIKit.framework */; };
+		BFCBFD4D12C7BB200038AB41 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCBFD4C12C7BB200038AB41 /* Foundation.framework */; };
+		BFCBFD4F12C7BB200038AB41 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFCBFD4E12C7BB200038AB41 /* CoreGraphics.framework */; };
+		BFCBFD5412C7BB200038AB41 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BFCBFD5212C7BB200038AB41 /* InfoPlist.strings */; };
+		BFCBFD5612C7BB200038AB41 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCBFD5512C7BB200038AB41 /* main.m */; };
+		BFCBFD5912C7BB200038AB41 /* CGOLAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCBFD5812C7BB200038AB41 /* CGOLAppDelegate.m */; };
+		BFCBFD5C12C7BB200038AB41 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFCBFD5A12C7BB200038AB41 /* MainWindow.xib */; };
+		BFCBFD5F12C7BB200038AB41 /* CGOLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCBFD5E12C7BB200038AB41 /* CGOLViewController.m */; };
+		BFCBFD6212C7BB210038AB41 /* CGOLViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFCBFD6012C7BB210038AB41 /* CGOLViewController.xib */; };
+		BFCBFD7012C7BC240038AB41 /* GameOfLife.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCBFD6F12C7BC240038AB41 /* GameOfLife.m */; };
+		BFCBFD7412C7BCA80038AB41 /* Cell.m in Sources */ = {isa = PBXBuildFile; fileRef = BFCBFD7312C7BCA80038AB41 /* Cell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BFCBFD4712C7BB200038AB41 /* CGOL.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CGOL.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFCBFD4A12C7BB200038AB41 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BFCBFD4C12C7BB200038AB41 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BFCBFD4E12C7BB200038AB41 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BFCBFD5012C7BB200038AB41 /* CGOL-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "CGOL-Info.plist"; sourceTree = "<group>"; };
+		BFCBFD5112C7BB200038AB41 /* CGOL_Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOL_Prefix.pch; sourceTree = "<group>"; };
+		BFCBFD5312C7BB200038AB41 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BFCBFD5512C7BB200038AB41 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BFCBFD5712C7BB200038AB41 /* CGOLAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOLAppDelegate.h; sourceTree = "<group>"; };
+		BFCBFD5812C7BB200038AB41 /* CGOLAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGOLAppDelegate.m; sourceTree = "<group>"; };
+		BFCBFD5B12C7BB200038AB41 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		BFCBFD5D12C7BB200038AB41 /* CGOLViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CGOLViewController.h; sourceTree = "<group>"; };
+		BFCBFD5E12C7BB200038AB41 /* CGOLViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CGOLViewController.m; sourceTree = "<group>"; };
+		BFCBFD6112C7BB210038AB41 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/CGOLViewController.xib; sourceTree = "<group>"; };
+		BFCBFD6E12C7BC240038AB41 /* GameOfLife.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameOfLife.h; sourceTree = "<group>"; };
+		BFCBFD6F12C7BC240038AB41 /* GameOfLife.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GameOfLife.m; sourceTree = "<group>"; };
+		BFCBFD7212C7BCA80038AB41 /* Cell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cell.h; sourceTree = "<group>"; };
+		BFCBFD7312C7BCA80038AB41 /* Cell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cell.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BFCBFD4412C7BB200038AB41 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFCBFD4B12C7BB200038AB41 /* UIKit.framework in Frameworks */,
+				BFCBFD4D12C7BB200038AB41 /* Foundation.framework in Frameworks */,
+				BFCBFD4F12C7BB200038AB41 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BFCBFD3812C7BB200038AB41 = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD3F12C7BB200038AB41 /* Classes */,
+				BFCBFD4012C7BB200038AB41 /* Other Sources */,
+				BFCBFD4112C7BB200038AB41 /* Resources */,
+				BFCBFD4212C7BB200038AB41 /* Frameworks */,
+				BFCBFD4812C7BB200038AB41 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BFCBFD3F12C7BB200038AB41 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD5712C7BB200038AB41 /* CGOLAppDelegate.h */,
+				BFCBFD5812C7BB200038AB41 /* CGOLAppDelegate.m */,
+				BFCBFD5D12C7BB200038AB41 /* CGOLViewController.h */,
+				BFCBFD5E12C7BB200038AB41 /* CGOLViewController.m */,
+				BFCBFD6E12C7BC240038AB41 /* GameOfLife.h */,
+				BFCBFD6F12C7BC240038AB41 /* GameOfLife.m */,
+				BFCBFD7212C7BCA80038AB41 /* Cell.h */,
+				BFCBFD7312C7BCA80038AB41 /* Cell.m */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		BFCBFD4012C7BB200038AB41 /* Other Sources */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD5112C7BB200038AB41 /* CGOL_Prefix.pch */,
+				BFCBFD5512C7BB200038AB41 /* main.m */,
+			);
+			name = "Other Sources";
+			sourceTree = "<group>";
+		};
+		BFCBFD4112C7BB200038AB41 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD5012C7BB200038AB41 /* CGOL-Info.plist */,
+				BFCBFD5212C7BB200038AB41 /* InfoPlist.strings */,
+				BFCBFD5A12C7BB200038AB41 /* MainWindow.xib */,
+				BFCBFD6012C7BB210038AB41 /* CGOLViewController.xib */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		BFCBFD4212C7BB200038AB41 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD4A12C7BB200038AB41 /* UIKit.framework */,
+				BFCBFD4C12C7BB200038AB41 /* Foundation.framework */,
+				BFCBFD4E12C7BB200038AB41 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BFCBFD4812C7BB200038AB41 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BFCBFD4712C7BB200038AB41 /* CGOL.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BFCBFD4612C7BB200038AB41 /* CGOL */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BFCBFD6512C7BB210038AB41 /* Build configuration list for PBXNativeTarget "CGOL" */;
+			buildPhases = (
+				BFCBFD4312C7BB200038AB41 /* Sources */,
+				BFCBFD4412C7BB200038AB41 /* Frameworks */,
+				BFCBFD4512C7BB200038AB41 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CGOL;
+			productName = CGOL;
+			productReference = BFCBFD4712C7BB200038AB41 /* CGOL.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFCBFD3A12C7BB200038AB41 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = BFCBFD3D12C7BB200038AB41 /* Build configuration list for PBXProject "CGOL" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BFCBFD3812C7BB200038AB41;
+			productRefGroup = BFCBFD4812C7BB200038AB41 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BFCBFD4612C7BB200038AB41 /* CGOL */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BFCBFD4512C7BB200038AB41 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFCBFD5412C7BB200038AB41 /* InfoPlist.strings in Resources */,
+				BFCBFD5C12C7BB200038AB41 /* MainWindow.xib in Resources */,
+				BFCBFD6212C7BB210038AB41 /* CGOLViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BFCBFD4312C7BB200038AB41 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BFCBFD5612C7BB200038AB41 /* main.m in Sources */,
+				BFCBFD5912C7BB200038AB41 /* CGOLAppDelegate.m in Sources */,
+				BFCBFD5F12C7BB200038AB41 /* CGOLViewController.m in Sources */,
+				BFCBFD7012C7BC240038AB41 /* GameOfLife.m in Sources */,
+				BFCBFD7412C7BCA80038AB41 /* Cell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BFCBFD5212C7BB200038AB41 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFCBFD5312C7BB200038AB41 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BFCBFD5A12C7BB200038AB41 /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFCBFD5B12C7BB200038AB41 /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		BFCBFD6012C7BB210038AB41 /* CGOLViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BFCBFD6112C7BB210038AB41 /* en */,
+			);
+			name = CGOLViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BFCBFD6312C7BB210038AB41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Debug;
+		};
+		BFCBFD6412C7BB210038AB41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.1;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PREBINDING = NO;
+				SDKROOT = iphoneos4.1;
+			};
+			name = Release;
+		};
+		BFCBFD6612C7BB210038AB41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CGOL_Prefix.pch;
+				INFOPLIST_FILE = "CGOL-Info.plist";
+				PRODUCT_NAME = CGOL;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BFCBFD6712C7BB210038AB41 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = CGOL_Prefix.pch;
+				INFOPLIST_FILE = "CGOL-Info.plist";
+				PRODUCT_NAME = CGOL;
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BFCBFD3D12C7BB200038AB41 /* Build configuration list for PBXProject "CGOL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFCBFD6312C7BB210038AB41 /* Debug */,
+				BFCBFD6412C7BB210038AB41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BFCBFD6512C7BB210038AB41 /* Build configuration list for PBXNativeTarget "CGOL" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BFCBFD6612C7BB210038AB41 /* Debug */,
+				BFCBFD6712C7BB210038AB41 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFCBFD3A12C7BB200038AB41 /* Project object */;
+}
