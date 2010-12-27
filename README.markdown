@@ -3,7 +3,9 @@ Game of Life for the iPhone
 
 New to objective-c and the iPhone SDK, I thought I'd use [Conway's Game of Life](http://en.wikipedia.org/wiki/Conway's_Game_of_Life) to learn some aspects of the language and the SDK. Conway's Game of Life is a [cellular automaton](http://en.wikipedia.org/wiki/Cellular_automaton) that requires almost no user input, so it's a good thing to start with. 
 
-## Some things to note... ##
+## And now a message from our sponsors... ##
+
+Got your attention there... 
 
 Since I'm new to objective-c, I tried to use some concepts in places where they're not really needed. This is mostly a learning experience. Some classes are unnecessary and some design decisions were purely for fun. For example, I'm using a one dimensional NSMutableArray for the grid of cells, so I'm forced to create an abstract [matrix](http://en.wikipedia.org/wiki/Matrix_\(mathematics\)) for the grid: from a (x,y) coordinate I can calculate an index, but the calculation is not so straightforward when you go the other way round. 
 
@@ -21,6 +23,6 @@ Anyway, picking out edge cases (numbers in first / last rows, or first / last co
   * Check the TODO
   
 ### License ###
-This Software is licensed under the [GPL-v3](http://www.gnu.org/licenses/gpl-3.0.txt). We're all trying to learn here, so it's best we share, isn't it? :-)
+This Software is licensed under the [GPL-v3](http://www.gnu.org/licenses/gpl-3.0.txt). We're all trying to learn here, so it's best we share :-)
 
 See the LICENSE file for the full text of the license.
