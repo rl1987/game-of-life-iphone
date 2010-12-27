@@ -69,23 +69,18 @@
 #pragma mark Interface – User Input
 
 - (IBAction)tickPressed:(UIButton *)sender{
-    NSLog(@"Tick pressed");
     [textView setText:@"Tick!"];
     [self tick];
-    [self drawGrid];
 }
 
 - (IBAction)clearPressed:(UIButton *)sender{
-    NSLog(@"Clear pressed");
     [textView setText:@""];
 }
 
 - (IBAction)startPressed:(UIButton *)sender{
     if(!grid){
-        NSLog(@"Starting game...");
         [self loadGame];
     }
-    else NSLog(@"Game already started...");    
 }
 
 #pragma mark Private methods
@@ -96,17 +91,16 @@
 
 - (void) tick{
     [grid tick];
+    [self drawGrid];
 }
 - (void)drawGrid{
-    int _row, _column = 0;
+    int _row = 0;
+    int _column = 0;
     for(NSArray * row in cellGrid){
+        _column = 0;
         for( UIView *item in row){
-            if([grid isAliveAtRow:_row andColumn:_column]){
-                [self makeBlockAlive:item];
-            }
-            else {
-                [self makeBlockDead:item];
-            }
+
+            [self updateBlockAtRow:_row andColumn:_column];
             _column++;
         }
         _row++;
@@ -142,7 +136,7 @@
 }
 
 - (void)initializeCellGrid{
-    [cellGrid dealloc];
+    [cellGrid release];
     cellGrid = [[NSMutableArray alloc] init];
     [self createGrid];
 }
@@ -164,6 +158,7 @@
 
 - (void) updateBlockAtRow:(int)r andColumn:(int)c{
     UIView * block = [[cellGrid objectAtIndex:r] objectAtIndex:c];
+    if(!block) return;
     
     if([grid isAliveAtRow:r andColumn:c]){
         [self makeBlockAlive: block];
@@ -176,12 +171,10 @@
 
 - (int) getCellRow:(UIView *)cell{
     double row = round(cell.frame.origin.y/19);
-    NSLog(@"Row COORD: %.f", row);
 	return row;
 }
 - (int) getCellColumn:(UIView *)cell{
     double column = round(cell.frame.origin.x/19);
-    NSLog(@"Column COORD: %.f", column);
     return column;
 }
 
@@ -208,9 +201,7 @@
     UIView *view = tapGesture.view;
     int row = [self getCellRow:view];
     int column = [self getCellColumn:view];
-    
     [grid toggleAtRow:row andColumn:column];
     [self updateBlockAtRow:row andColumn:column];
-    [self makeBlockAlive:view];
 }
 @end

@@ -26,10 +26,12 @@
     columns = numColumns;
     rows = numRows;
     total = numRows * numColumns;
+    cells = [[NSMutableArray alloc] init];
     for(int idx = 0; idx < total; idx++){
-        Cell * cell = [[Cell alloc] initWithValue:FALSE];
+        Cell * cell = [[Cell alloc] initWithValue:false];
         [cells addObject:cell];
     }
+    
     return self;
 }
 #pragma mark Grid Operations
@@ -41,36 +43,46 @@
     // Out of bounds shouldn't be handled like this, I think.
     // NSMutableArray / NSArray should return NSError, which 
     // should be handled.
-    if (index < 0 || index > (rows*columns)) return nil;
+    if (index < 0 || index >= (rows*columns)){
+        return nil;
+        NSLog(@"ERROR: nil returned in atIndex:%d", index);
+    }
     return [cells objectAtIndex:index];
 }
 
 - (void) tick{
-    NSMutableArray * newCells = [cells copy];
+    NSMutableArray * newCells = [[NSMutableArray alloc] init];
     
+    int row = 0;
+    int col = 0;
     int index = 0;
-    for(Cell * cell in newCells){
-        int neighbors_alive = [self totalNeighboursAliveAtIndex:index];
-        /* 
-         1. less than 2 neighbors, you die
-         2. More than 3 neighbors, you die
-         */
+    for(Cell * cell in cells){
+        row = (int) floor(index / columns);
+        col = index % columns;
+        int neighbors_alive = [self totalNeighboursAliveAtRow:row andColumn:col];
         if([cell isAlive]){
-            if(neighbors_alive < 2 || neighbors_alive > 3){
-                
-            }
+            if(neighbors_alive < 2 || neighbors_alive > 3)
+                [newCells addObject: [[Cell alloc] initWithValue:FALSE]];
+            else
+                [newCells addObject: [[Cell alloc] initWithValue:TRUE]];
         }
-        if(neighbors_alive < 2 || neighbors_alive > 3){
-            
+        else{ 
+            if(neighbors_alive == 3)
+                [newCells addObject: [[Cell alloc] initWithValue:TRUE]];
+            else
+                [newCells addObject: [[Cell alloc] initWithValue: [cell value]]];
         }
         index++;
     }
+    
+    [cells release];
+    cells = [newCells copy];
+    [newCells release];
 }
 
 // Checking for life
 - (BOOL) isAliveAtRow:(int)row andColumn:(int)column{
-    int index = self.rows + column;
-    return [self isAliveAtIndex:index];
+    return [[self atRow:row andColumn:column] isAlive];
 }
 - (BOOL) isAliveAtIndex:(int)index{
     return [[cells objectAtIndex:index] isAlive];
@@ -105,9 +117,48 @@
 
 // Neighbours
 - (int) totalNeighboursAliveAtRow:(int)row andColumn:(int)column{
-    return [self totalNeighboursAliveAtIndex:(row*columns)+column ];
+    
+    int totalNeighbours = 0;
+    
+    // NW
+    if( row > 0 && column > 0 )
+        if( [[self atRow:(row-1) andColumn:(column-1)] isAlive])
+            totalNeighbours++;
+    // N
+    if( row > 0 && [[self atRow:(row-1) andColumn:column] isAlive])
+            totalNeighbours++;
+    // NE
+    if( row > 0 && column+1 < columns && [[self atRow:(row-1) andColumn:column+1] isAlive])
+        totalNeighbours++;
+    // W
+    if( column > 0 )
+        if( [[self atRow:(row) andColumn:(column-1)] isAlive])
+            totalNeighbours++;
+    // E
+    if( column+1 < columns )
+        if( [[self atRow:(row) andColumn:(column+1)] isAlive])
+            totalNeighbours++;
+    // SW
+    if( row+1 < rows && column > 0 )
+        if( [[self atRow:(row+1) andColumn:(column-1)] isAlive])
+            totalNeighbours++;
+    // S
+    if( row+1 < rows)
+        if( [[self atRow:(row+1) andColumn:(column)] isAlive])
+            totalNeighbours++;
+    // se
+    if( row+1 < rows && column+1 < columns )
+        if( [[self atRow:(row+1) andColumn:(column+1)] isAlive])
+            totalNeighbours++;
+    
+    
+    return totalNeighbours;
 }
+
 - (int) totalNeighboursAliveAtIndex:(int)index{
+    return 0;
+}
+- (int) totalNeighborsForIndex:(int)index andGrid:(NSArray *)array{
     return 0;
 }
 

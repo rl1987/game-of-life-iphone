@@ -29,6 +29,7 @@
 }
 
 - (void) toggleValue{
+    NSLog(@"CELL toggleValue");
     value = !value;
 }
 

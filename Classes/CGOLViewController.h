@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "GameOfLife.h"
+#import "Cell.h"
 
 @interface CGOLViewController : UIViewController {
     GameOfLife * grid;
