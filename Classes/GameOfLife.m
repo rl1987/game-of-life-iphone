@@ -115,7 +115,8 @@
     [[self atRow:row andColumn:column] toggleValue];
 }
 
-// Neighbours
+// Moore Neighborhood (range 1)
+#pragma mark Moore Neighborhood
 - (int) totalNeighboursAliveAtRow:(int)row andColumn:(int)column{
     
     int totalNeighbours = 0;

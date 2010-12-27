@@ -33,7 +33,7 @@
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     
-    grid = [[GameOfLife alloc] initWithRows:16 andColumns:16];
+    grid = [[GameOfLife alloc] initWithRows:20 andColumns:20];
     gridView.backgroundColor = [UIColor blackColor];
     [self initializeCellGrid];
     [self populateGridView];
@@ -69,8 +69,13 @@
 #pragma mark Interface – User Input
 
 - (IBAction)tickPressed:(UIButton *)sender{
-    [textView setText:@"Tick!"];
+    int height = gridView.bounds.size.height;
+    int width = gridView.bounds.size.width;
+    float columns = width / 20;
+    NSString * str = [[NSString alloc] initWithFormat:@"width: %d, height: %d, columns: %.f", width, height, columns];
+    [textView setText:str];
     [self tick];
+    
 }
 
 - (IBAction)clearPressed:(UIButton *)sender{
@@ -114,7 +119,7 @@
     for(int _row = 0; _row <= [grid rows]; _row++){
         NSMutableArray *gridRow = [[NSMutableArray alloc] init];
         for(int _column = 0; _column <= [grid columns]; _column++){
-            CGRect _block = CGRectMake((_column*19)+1, (_row*19)+1, 18, 18);
+            CGRect _block = CGRectMake((_column*15)+1, (_row*15)+1, 14, 14);
             UIView *view = [[UIView alloc] initWithFrame:_block];
             
             // Add tap gesture to toggle alive / dead
@@ -170,11 +175,11 @@
 }
 
 - (int) getCellRow:(UIView *)cell{
-    double row = round(cell.frame.origin.y/19);
+    double row = round(cell.frame.origin.y/15);
 	return row;
 }
 - (int) getCellColumn:(UIView *)cell{
-    double column = round(cell.frame.origin.x/19);
+    double column = round(cell.frame.origin.x/15);
     return column;
 }
 
