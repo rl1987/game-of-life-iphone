@@ -180,7 +180,7 @@
 	return row;
 }
 - (int) getCellColumn:(UIView *)cell{
-    int column = round(cell.frame.origin.x/19);
+    double column = round(cell.frame.origin.x/19);
     NSLog(@"Column COORD: %.f", column);
     return column;
 }
