@@ -21,7 +21,7 @@
 
 - (GameOfLife *) initWithRows:(int)numRows andColumns:(int)numColumns;
 
-- (void) iterate;
+- (void) tick;
 
 // Get cell at position
 - (Cell *) atRow:(int)row andColumn:(int)column;
@@ -41,6 +41,8 @@
 
 // Clear entire grid
 - (void) clearGrid;
+
+- (void) toggleAtRow:(int)row andColumn:(int)column;
 
 // Neighbours
 - (int) totalNeighboursAliveAtRow:(int)row andColumn:(int)column;

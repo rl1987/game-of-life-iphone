@@ -9,9 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @interface Cell : NSObject {
-    bool value;
+    BOOL value;
 }
+@property(readwrite) BOOL value;
+
 - (id) initWithValue:(BOOL)val;
 - (BOOL) isAlive;
+- (void) toggleValue;
 
 @end

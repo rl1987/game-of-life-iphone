@@ -13,29 +13,35 @@
     GameOfLife * grid;
     IBOutlet UIView * gridView;
     IBOutlet UITextView * textView;
+    NSMutableArray * cellGrid;
 }
+
 - (IBAction)startPressed:(UIButton *)sender;
 
 - (IBAction)tickPressed:(UIButton *)sender;
 - (IBAction)clearPressed:(UIButton *)sender;
 
 
-- (void) loadGame;
-- (void) drawLife;
+- (void)loadGame;
+- (void)initializeCellGrid;
+- (void)createGrid;
+- (void)drawGrid;
+- (void)populateGridView;
 
 //- (void) drawLifeViewAtX:(int)x andY:(int)y;
 
 //
-//- (UIView *) lifeViewAtLocationX:(int)x andLocationY:(int)y;
-//
-//- (int) getBoardXLocationFromView:(UIView *)view;
-//- (int) getBoardYLocationFromView:(UIView *)view;
-//
-//- (void) makeViewAlive:(UIView *)view;
-//- (void) makeViewDead:(UIView *)view;
-//
-//- (void) makeViewAliveAtX:(int)x andY:(int)y;
-//- (void) makeViewDeadAtX:(int)x andY:(int)y;
+- (UIView *) cellViewAtRow:(int)r andColumn:(int)c;
+
+- (int) getCellRow:(UIView *)cell;
+- (int) getCellColumn:(UIView *)cell;
+
+- (void) makeBlockAlive:(UIView *)view;
+- (void) makeBlockDead:(UIView *)view;
+- (void) updateBlockAtRow:(int)r andColumn:(int)c;
+- (void) createLifeInRow:(int)r andColumn:(int)c;
+- (void) killLifeInRow:(int)r andColumn:(int)c;
+- (void) toggleViewState:(UITapGestureRecognizer *)tapGesture;
 
 - (void) tick;
 @end

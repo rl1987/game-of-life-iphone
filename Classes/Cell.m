@@ -11,6 +11,8 @@
 
 @implementation Cell
 
+@synthesize value;
+
 - (Cell *) init {
     return [self initWithValue:FALSE];
 }
@@ -25,4 +27,9 @@
 - (BOOL) isAlive{
     return value;
 }
+
+- (void) toggleValue{
+    value = !value;
+}
+
 @end
