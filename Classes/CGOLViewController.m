@@ -12,6 +12,7 @@
 
 @synthesize timer = _timer;
 @synthesize running = _running;
+@synthesize startButton;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -28,6 +29,7 @@
 }
 
 - (void)dealloc {
+    [startButton release];
     [super dealloc];
 }
 
@@ -47,6 +49,20 @@
 
 - (IBAction)clearPressed:(UIButton *)sender{
     [textView setText:@""];
+    
+    if (self.running) {
+        self.running = NO;
+        
+        [self.timer invalidate];
+        [self.timer release];
+        self.timer = nil;
+        
+        //[(UIBarButtonItem *)[self.view viewWithTag:1] setTitle:@"START"];
+        self.startButton.title = @"START";
+    }
+    
+    [grid clearGrid];
+    [self drawGrid];
 }
 
 #define TICK_INTERVAL 1.0
@@ -212,5 +228,9 @@
     int column = [self getCellColumn:view];
     [grid toggleAtRow:row andColumn:column];
     [self updateBlockAtRow:row andColumn:column];
+}
+- (void)viewDidUnload {
+    [self setStartButton:nil];
+    [super viewDidUnload];
 }
 @end

@@ -19,6 +19,7 @@
 
 @property (nonatomic,retain) NSTimer *timer;
 @property (nonatomic,assign) BOOL running;
+@property (retain, nonatomic) IBOutlet UIBarButtonItem *startButton;
 
 - (IBAction)startPressed:(UIButton *)sender;
 
