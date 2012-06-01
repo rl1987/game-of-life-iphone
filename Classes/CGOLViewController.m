@@ -10,25 +10,8 @@
 
 @implementation CGOLViewController
 
-
-
-/*
-// The designated initializer. Override to perform setup that is required before the view is loaded.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if ((self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil])) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-
+@synthesize timer = _timer;
+@synthesize running = _running;
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
@@ -37,30 +20,12 @@
     gridView.backgroundColor = [UIColor blackColor];
     [self initializeCellGrid];
     [self populateGridView];
+    
+    self.running = NO;
+    
     [super viewDidLoad];
 
 }
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
-
-- (void)didReceiveMemoryWarning {
-	// Releases the view if it doesn't have a superview.
-    [super didReceiveMemoryWarning];
-	
-	// Release any cached data, images, etc that aren't in use.
-}
-
-- (void)viewDidUnload {
-	// Release any retained subviews of the main view.
-	// e.g. self.myOutlet = nil;
-}
-
 
 - (void)dealloc {
     [super dealloc];
@@ -72,7 +37,9 @@
     int height = gridView.bounds.size.height;
     int width = gridView.bounds.size.width;
     float columns = width / 20;
-    NSString * str = [[NSString alloc] initWithFormat:@"width: %d, height: %d, columns: %.f", width, height, columns];
+    NSString * str = 
+    [[NSString alloc] initWithFormat:@"width: %d, height: %d, columns: %.f", 
+     width, height, columns];
     [textView setText:str];
     [self tick];
     
@@ -82,13 +49,46 @@
     [textView setText:@""];
 }
 
-- (IBAction)startPressed:(UIButton *)sender{
+#define TICK_INTERVAL 1.0
+
+- (IBAction)startPressed:(UIBarButtonItem *)sender{
     if(!grid){
         [self loadGame];
+    }
+    
+    if (!self.running)
+    {
+        sender.title = @"STOP";
+        
+        if (!self.timer)
+            self.timer = [[NSTimer alloc] initWithFireDate:[NSDate date] 
+                                                  interval:TICK_INTERVAL 
+                                                    target:self 
+                                                  selector:@selector(timerFired:) 
+                                                  userInfo:nil 
+                                                   repeats:YES];
+        
+        [[NSRunLoop mainRunLoop] addTimer:self.timer 
+                                  forMode:NSDefaultRunLoopMode];
+        
+        self.running = YES;
+    } else {
+        sender.title  = @"START";
+        
+        [self.timer invalidate];
+        [self.timer release];
+        self.timer = nil;
+        
+        self.running = NO;
     }
 }
 
 #pragma mark Private methods
+
+- (void)timerFired:(NSTimer *)timer
+{
+    [self tick];
+}
 
 - (void) loadGame{
     NSLog(@"Loading game:");
@@ -203,6 +203,10 @@
     /*
      * Toggle this value in the grid and repaint it. 
      */
+    
+    if (self.running)
+        return;
+    
     UIView *view = tapGesture.view;
     int row = [self getCellRow:view];
     int column = [self getCellColumn:view];

@@ -17,6 +17,9 @@
     NSMutableArray * cellGrid;
 }
 
+@property (nonatomic,retain) NSTimer *timer;
+@property (nonatomic,assign) BOOL running;
+
 - (IBAction)startPressed:(UIButton *)sender;
 
 - (IBAction)tickPressed:(UIButton *)sender;
