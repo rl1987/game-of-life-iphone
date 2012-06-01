@@ -21,7 +21,8 @@
 @property (nonatomic,assign) BOOL running;
 @property (retain, nonatomic) IBOutlet UIBarButtonItem *startButton;
 
-- (IBAction)startPressed:(UIButton *)sender;
+- (IBAction)startPressed:(UIBarButtonItem *)sender;
+- (IBAction)doubleTap:(id)sender;
 
 - (IBAction)tickPressed:(UIButton *)sender;
 - (IBAction)clearPressed:(UIButton *)sender;

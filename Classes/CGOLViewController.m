@@ -99,6 +99,11 @@
     }
 }
 
+- (IBAction)doubleTap:(id)sender 
+{
+    [self startPressed:self.startButton];
+}
+
 #pragma mark Private methods
 
 - (void)timerFired:(NSTimer *)timer
